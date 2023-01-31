@@ -29,21 +29,26 @@ employing an initial guess of x_0 = 0.
 int main() {
   double x_i = 1e-10;
   int counter = 0;
+  
   while (counter < 100) {
     counter++;
     // compute the main function
-    double x_ii = exp(-x_i); 
-
+    double f = exp(-x_i) - x_i;
+    // compute the derivative function
+    double f_prime = -exp(-x_i) - 1;
+    
+    double x_ii = x_i - f/f_prime;
     // percentage error
-    double delta_x = fabs((x_ii - x_i)/x_i*100);
+    double delta_x = (x_ii - x_i)/x_i*100;
     x_i = x_ii;
-  
-    printf("The percentage error %.8f\n", delta_x);
+    
+    printf("The percentage error %.2f\n", delta_x);
     if (delta_x < 1e-6) {
-      printf("The total number of iterations is %d\n", counter);
+      printf("The total number of iterations is %.0f\n", counter);
       printf("The root of the given function is %.4f\n", x_i);
       break;
     }
   }
+  
   return 0;
 }
