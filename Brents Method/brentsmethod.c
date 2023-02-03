@@ -18,8 +18,8 @@ TO BE DEBUGGED!!!
 P.S. See the figures for more details.
 =============================================================================================
 
-Problem: Use secant method to locate the root of f(x) = e^{−x} − x. Start
-with initial estimates of x_{-1} = 0 and x_{0} = 1
+Problem: Find the root of the function f(x) = (x+15)*(x-1)**2 using Brent's Method.
+         Initial interval = [-9,10]
 */
 #include<stdio.h>
 #include<math.h>
